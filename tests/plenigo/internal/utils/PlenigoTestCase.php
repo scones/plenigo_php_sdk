@@ -20,7 +20,7 @@ abstract class PlenigoTestCase extends TestCase
     protected $errors = array();
     protected $errorsAsserted = false;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->errors = array();
         $this->errorsAsserted = false;
@@ -83,12 +83,12 @@ abstract class PlenigoTestCase extends TestCase
         $this->assertTrue(true);
     }
 
-    protected function tearDown()
+    protected function tearDown():void
     {
         restore_error_handler();
     }
 
-    protected function assertPostConditions()
+    protected function assertPostConditions() :void
     {
         if ((count($this->errors) > 0) && ($this->errorsAsserted === false)) {
             $msgErrors = "";
